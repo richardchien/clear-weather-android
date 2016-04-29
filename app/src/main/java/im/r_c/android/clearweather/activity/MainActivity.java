@@ -13,6 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import im.r_c.android.clearweather.R;
 import im.r_c.android.clearweather.adapter.CardPagerAdapter;
+import im.r_c.android.clearweather.util.UIUtils;
 import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,10 +51,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_add:
+                UIUtils.dialog(this, "Add", "This should lead users to an activity for searching for a county.");
                 break;
             case R.id.menu_item_remove:
+                UIUtils.dialog(this, "Remove", "This should remove the current county. (after an alert)");
                 break;
             case R.id.menu_item_settings:
+                UIUtils.dialog(this, "Settings", "Settings activity");
                 break;
         }
         return true;

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">清心天气</string>
+    <string name="action_add">添加</string>
+    <string name="action_settings">设置</string>
+    <string name="action_remove">删除</string>
+
+    <string name="day_today">今天</string>
+    <string name="day_tomorrow">明天</string>
+    <string name="day_day_after_tomorrow">后天</string>
+    <string name="day_monday">星期一</string>
+    <string name="day_tuesday">星期二</string>
+    <string name="day_wednesday">星期三</string>
+    <string name="day_thursday">星期四</string>
+    <string name="day_friday">星期五</string>
+    <string name="day_saturday">星期六</string>
+    <string name="day_sunday">星期日</string>
+
+    <string name="detail_title_day">← 日间</string>
+    <string name="detail_title_humidity">湿度 →</string>
+    <string name="detail_title_night">← 夜间</string>
+    <string name="detail_title_rain_probability">降雨概率 →</string>
+    <string name="detail_title_temperature">← 温度</string>
+    <string name="detail_title_distance">能见度 →</string>
+</resources>

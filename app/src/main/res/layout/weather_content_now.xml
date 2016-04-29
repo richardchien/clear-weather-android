@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/VerticalLinearLayout"
+              android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_county_name"
+        style="@style/CenterTextView"
+        android:text="武进"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/tv_now_status"
+        style="@style/CenterTextView"
+        android:text="多云"
+        android:textSize="18sp"/>
+
+    <RelativeLayout
+        style="@style/BaseLayout"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_now_temperature"
+            style="@style/BaseTextView"
+            android:layout_centerHorizontal="true"
+            android:text="17"
+            android:textSize="80dp"/>
+
+        <TextView
+            style="@style/BaseTextView"
+            android:layout_toRightOf="@+id/tv_now_temperature"
+            android:text="˚"
+            android:textSize="80dp"/>
+    </RelativeLayout>
+</LinearLayout>

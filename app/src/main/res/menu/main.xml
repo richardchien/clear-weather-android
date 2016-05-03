@@ -9,6 +9,9 @@
         android:icon="@drawable/ic_remove_tinted"
         android:title="@string/action_remove"/>
     <item
+        android:id="@+id/menu_item_refresh"
+        android:title="@string/action_refresh"/>
+    <item
         android:id="@+id/menu_item_settings"
         android:title="@string/action_settings"/>
 </menu>

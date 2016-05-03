@@ -105,10 +105,10 @@
             <TextView
                 android:id="@+id/tv_today_distance_title"
                 style="@style/DetailTextView.Title.Right"
-                android:text="@string/detail_title_distance"/>
+                android:text="@string/detail_title_visibility"/>
 
             <TextView
-                android:id="@+id/tv_today_distance"
+                android:id="@+id/tv_today_visibility"
                 style="@style/DetailTextView"
                 android:layout_toEndOf="@+id/tv_today_distance_title"
                 android:layout_toRightOf="@+id/tv_today_distance_title"

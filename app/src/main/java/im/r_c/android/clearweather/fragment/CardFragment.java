@@ -11,15 +11,16 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import im.r_c.android.clearweather.R;
+import im.r_c.android.clearweather.model.County;
 
 /**
  * ClearWeather
  * Created by richard on 16/4/29.
  */
 public class CardFragment extends Fragment {
-    public static CardFragment newInstance(String text) {
+    public static CardFragment newInstance(County county) {
         Bundle args = new Bundle();
-        args.putString("text", text);
+        args.putSerializable("county", county);
         CardFragment fragment = new CardFragment();
         fragment.setArguments(args);
         return fragment;
@@ -49,8 +50,8 @@ public class CardFragment extends Fragment {
     @Bind(R.id.tv_today_rain_probability)
     TextView mTvTodayRainProbability;
 
-    @Bind(R.id.tv_today_distance)
-    TextView mTvDistance;
+    @Bind(R.id.tv_today_visibility)
+    TextView mTvVisibility;
 
     @Bind(R.id.tv_tomorrow_day_weather)
     TextView mTvTomorrowDayWeather;
@@ -70,7 +71,8 @@ public class CardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_card, container, false);
         ButterKnife.bind(this, view);
 
-        mTvCountyName.setText(getArguments().getString("text", "Hello!"));
+        County county = (County) getArguments().getSerializable("county");
+        mTvCountyName.setText(county == null ? "" : county.getName());
 
         return view;
     }

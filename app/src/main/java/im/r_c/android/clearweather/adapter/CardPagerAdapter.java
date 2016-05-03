@@ -7,18 +7,19 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import java.util.List;
 
 import im.r_c.android.clearweather.fragment.CardFragment;
+import im.r_c.android.clearweather.model.County;
 
 /**
  * ClearWeather
  * Created by richard on 16/4/29.
  */
 public class CardPagerAdapter extends FragmentStatePagerAdapter {
-    public CardPagerAdapter(FragmentManager fm, List<String> dataList) {
+    private List<County> mDataList;
+
+    public CardPagerAdapter(FragmentManager fm, List<County> dataList) {
         super(fm);
         mDataList = dataList;
     }
-
-    private List<String> mDataList;
 
     @Override
     public Fragment getItem(int position) {

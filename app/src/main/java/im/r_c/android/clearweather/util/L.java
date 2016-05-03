@@ -14,38 +14,38 @@ public class L {
     public static final int ERROR = 5;
     public static final int NOTHING = 6;
 
-    private static int level = VERBOSE;
+    private static int sLevel = VERBOSE;
 
     public static void setLevel(int level) {
-        L.level = level;
+        L.sLevel = level;
     }
 
     public static void v(String tag, String msg) {
-        if (level <= VERBOSE) {
+        if (sLevel <= VERBOSE) {
             Log.v(tag, msg);
         }
     }
 
     public static void d(String tag, String msg) {
-        if (level <= DEBUG) {
+        if (sLevel <= DEBUG) {
             Log.d(tag, msg);
         }
     }
 
     public static void i(String tag, String msg) {
-        if (level <= INFO) {
+        if (sLevel <= INFO) {
             Log.i(tag, msg);
         }
     }
 
     public static void w(String tag, String msg) {
-        if (level <= WARN) {
+        if (sLevel <= WARN) {
             Log.w(tag, msg);
         }
     }
 
     public static void e(String tag, String msg) {
-        if (level <= ERROR) {
+        if (sLevel <= ERROR) {
             Log.e(tag, msg);
         }
     }

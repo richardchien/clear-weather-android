@@ -22,15 +22,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "\n" +
             "CREATE TABLE IF NOT EXISTS " + Consts.DATABASE_TABLE_WEATHER_INFO + " (\n" +
             "  id          INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-            "  county_code INTEGER UNIQUE,\n" +
+            "  county_code TEXT UNIQUE,\n" +
+            "  updated     INTEGER,\n" +
             "  json        TEXT\n" +
             ");";
 
-    private Context mContext;
-
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-        mContext = context;
     }
 
     @Override

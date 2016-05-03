@@ -3,7 +3,6 @@ package im.r_c.android.clearweather.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     CircleIndicator mCiIndicator;
 
     private List<County> mCountyList = new ArrayList<>();
-    private Handler mHandler = new Handler();
     private CardPagerAdapter mPagerAdapter;
 
     @Override
@@ -54,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPrefsHelper helper = new SharedPrefsHelper(this);
         mCountyList = helper.getCounties();
-        refreshViewPager();
+        mPagerAdapter = new CardPagerAdapter(getSupportFragmentManager(), mCountyList);
+        mVpMain.setAdapter(mPagerAdapter);
+        mCiIndicator.setViewPager(mVpMain);
 
         FetchCountyListService.start(this);
     }
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refreshViewPager() {
-        mPagerAdapter = new CardPagerAdapter(getSupportFragmentManager(), mCountyList);
+        mPagerAdapter.notifyDataSetChanged();
         mVpMain.setAdapter(mPagerAdapter);
         mCiIndicator.setViewPager(mVpMain);
     }

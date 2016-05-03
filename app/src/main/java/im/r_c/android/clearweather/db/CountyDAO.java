@@ -16,13 +16,15 @@ import im.r_c.android.clearweather.model.County;
  * Created by richard on 16/5/2.
  */
 public class CountyDAO {
-    private Context mContext;
     private SQLiteDatabase mDatabase;
 
     public CountyDAO(Context context) {
-        mContext = context;
-        DatabaseHelper helper = new DatabaseHelper(mContext, Consts.DATABASE_FILE_NAME, null, Consts.DATABASE_VERSION);
+        DatabaseHelper helper = new DatabaseHelper(context, Consts.DATABASE_FILE_NAME, null, Consts.DATABASE_VERSION);
         mDatabase = helper.getWritableDatabase();
+    }
+
+    public void close() {
+        mDatabase.close();
     }
 
     public long insert(County county) {

@@ -64,6 +64,7 @@ public class SharedPrefsHelper {
                     countyList.add(county);
                 }
             }
+            dao.close();
         }
         return countyList;
     }

@@ -85,6 +85,7 @@ public class FetchCountyListService extends IntentService {
             for (County county : countyList) {
                 dao.insert(county);
             }
+            dao.close();
 
             postToAddActivity(RESULT_OK);
         } catch (Exception e) {

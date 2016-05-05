@@ -112,7 +112,7 @@
                 style="@style/DetailTextView"
                 android:layout_toEndOf="@+id/tv_today_distance_title"
                 android:layout_toRightOf="@+id/tv_today_distance_title"
-                android:text="10 km"/>
+                android:text="10km"/>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

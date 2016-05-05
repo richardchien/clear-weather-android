@@ -30,4 +30,10 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return mDataList.size();
     }
+
+    @Override
+    public int getItemPosition(Object object) {
+        // Override this method to force the adapter to destroy deleted page
+        return POSITION_NONE;
+    }
 }

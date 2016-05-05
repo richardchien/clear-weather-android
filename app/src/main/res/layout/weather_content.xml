@@ -36,6 +36,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_update_time"
         style="@style/CenterTextView"
         android:paddingBottom="6dp"
         android:paddingTop="6dp"

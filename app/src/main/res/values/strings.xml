@@ -38,4 +38,8 @@
     <string name="remove_county">删除</string>
     <string name="remove_county_msg">确定删除「%s」?</string>
     <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="empty_now_temperature">--</string>
+    <string name="format_update_time">最后更新于 %s</string>
 </resources>

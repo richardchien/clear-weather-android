@@ -27,7 +27,11 @@
 
         <service android:name=".service.FetchCountyListService">
         </service>
+        <service android:name=".service.FetchWeatherInfoService">
+        </service>
 
+        <receiver android:name=".receiver.AutoUpdateReceiver">
+        </receiver>
     </application>
 
 </manifest>

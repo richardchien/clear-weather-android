@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import im.r_c.android.clearweather.model.Consts;
@@ -16,15 +16,12 @@ import im.r_c.android.clearweather.model.County;
  * Created by richard on 16/5/2.
  */
 public class CountyDAO {
+    private DatabaseHelper mHelper;
     private SQLiteDatabase mDatabase;
 
     public CountyDAO(Context context) {
-        DatabaseHelper helper = new DatabaseHelper(context, Consts.DATABASE_FILE_NAME, null, Consts.DATABASE_VERSION);
-        mDatabase = helper.getWritableDatabase();
-    }
-
-    public void close() {
-        mDatabase.close();
+        mHelper = new DatabaseHelper(context, Consts.DATABASE_FILE_NAME, null, Consts.DATABASE_VERSION);
+        mDatabase = mHelper.getWritableDatabase();
     }
 
     public long insert(County county) {
@@ -42,7 +39,7 @@ public class CountyDAO {
                 Consts.DATABASE_TABLE_COUNTY,
                 new String[]{County.KEY_NAME, County.KEY_NAME_EN, County.KEY_CITY, County.KEY_PROVINCE, County.KEY_CODE},
                 null, null, null, null, null);
-        List<County> countyList = new LinkedList<>();
+        List<County> countyList = new ArrayList<>();
         while (cursor.moveToNext()) {
             County county = new County();
             county.setName(cursor.getString(cursor.getColumnIndex(County.KEY_NAME)));
@@ -60,19 +57,24 @@ public class CountyDAO {
         Cursor cursor = mDatabase.query(
                 Consts.DATABASE_TABLE_COUNTY,
                 new String[]{County.KEY_NAME, County.KEY_NAME_EN, County.KEY_CITY, County.KEY_PROVINCE, County.KEY_CODE},
-                "code = ?",
+                County.KEY_CODE + " = ?",
                 new String[]{code},
                 null, null, null);
+        County county = null;
         if (cursor.moveToFirst()) {
-            County county = new County();
+            county = new County();
             county.setName(cursor.getString(cursor.getColumnIndex(County.KEY_NAME)));
             county.setNameEn(cursor.getString(cursor.getColumnIndex(County.KEY_NAME_EN)));
             county.setCity(cursor.getString(cursor.getColumnIndex(County.KEY_CITY)));
             county.setProvince(cursor.getString(cursor.getColumnIndex(County.KEY_PROVINCE)));
             county.setCode(cursor.getString(cursor.getColumnIndex(County.KEY_CODE)));
-            cursor.close();
-            return county;
         }
-        return null;
+        cursor.close();
+        return county;
+    }
+
+    public void close() {
+        mDatabase.close();
+        mHelper.close();
     }
 }

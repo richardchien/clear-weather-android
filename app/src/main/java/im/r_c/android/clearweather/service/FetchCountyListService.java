@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import im.r_c.android.clearweather.db.CountyDAO;
@@ -65,7 +65,7 @@ public class FetchCountyListService extends IntentService {
             e.printStackTrace();
         }
 
-        List<County> countyList = new LinkedList<>();
+        List<County> countyList = new ArrayList<>();
         try {
             // Parse JSON array
             JSONArray jsonArray = new JSONArray(countyListJson);

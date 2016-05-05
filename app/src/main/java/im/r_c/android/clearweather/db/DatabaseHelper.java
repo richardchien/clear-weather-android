@@ -11,16 +11,15 @@ import im.r_c.android.clearweather.model.Consts;
  * Created by richard on 16/5/2.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String SQL_CREATE = "CREATE TABLE IF NOT EXISTS " + Consts.DATABASE_TABLE_COUNTY + " (\n" +
+    private static final String SQL_CREATE_COUNTY = "CREATE TABLE IF NOT EXISTS " + Consts.DATABASE_TABLE_COUNTY + " (\n" +
             "  id       INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
             "  name     TEXT,\n" +
             "  name_en  TEXT,\n" +
             "  city     TEXT,\n" +
             "  province TEXT,\n" +
             "  code     TEXT\n" +
-            ");\n" +
-            "\n" +
-            "CREATE TABLE IF NOT EXISTS " + Consts.DATABASE_TABLE_WEATHER_INFO + " (\n" +
+            ");\n";
+    private static final String SQL_CREATE_WEATHER_INFO = "CREATE TABLE IF NOT EXISTS " + Consts.DATABASE_TABLE_WEATHER_INFO + " (\n" +
             "  id          INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
             "  county_code TEXT UNIQUE,\n" +
             "  updated     INTEGER,\n" +
@@ -33,7 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SQL_CREATE);
+        db.execSQL(SQL_CREATE_COUNTY);
+        db.execSQL(SQL_CREATE_WEATHER_INFO);
     }
 
     @Override

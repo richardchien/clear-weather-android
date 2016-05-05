@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 import im.r_c.android.clearweather.db.CountyDAO;
@@ -55,7 +54,7 @@ public class SharedPrefsHelper {
     public List<County> getCounties() {
         List<String> codeList = splitCodeList(
                 PreferenceManager.getDefaultSharedPreferences(mContext).getString(KEY_COUNTY_CODE_STRING, ""));
-        List<County> countyList = new LinkedList<>();
+        List<County> countyList = new ArrayList<>();
         if (codeList.size() > 0) {
             CountyDAO dao = new CountyDAO(mContext);
             for (String code : codeList) {

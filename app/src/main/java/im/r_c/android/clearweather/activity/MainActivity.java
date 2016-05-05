@@ -17,11 +17,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import im.r_c.android.clearweather.R;
 import im.r_c.android.clearweather.adapter.CardPagerAdapter;
+import im.r_c.android.clearweather.db.WeatherInfoDAO;
 import im.r_c.android.clearweather.model.County;
 import im.r_c.android.clearweather.service.FetchCountyListService;
+import im.r_c.android.clearweather.service.FetchWeatherInfoService;
 import im.r_c.android.clearweather.util.L;
 import im.r_c.android.clearweather.util.SharedPrefsHelper;
-import im.r_c.android.clearweather.util.UIUtils;
 import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mCiIndicator.setViewPager(mVpMain);
 
         FetchCountyListService.start(this);
+        FetchWeatherInfoService.startAutoUpdate(this);
     }
 
     @Override
@@ -75,8 +77,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_item_remove:
                 removeCurrentCounty();
                 break;
+            case R.id.menu_item_refresh:
+                FetchWeatherInfoService.start(this);
             case R.id.menu_item_settings:
-                UIUtils.dialog(this, "Settings", "Settings activity");
                 break;
         }
         return true;
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case REQUEST_CODE_ADD_COUNTY: {
                 if (resultCode == RESULT_OK) {
+                    // Add a county
                     County county = (County) data.getSerializableExtra(AddActivity.KEY_SELECTED_COUNTY);
                     L.d(TAG, "Got add result: " + county.toString());
                     if (!mCountyList.contains(county)) {
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         helper.addCounty(county);
                         mCountyList.add(county);
                         refreshViewPager();
+                        mVpMain.setCurrentItem(mPagerAdapter.getCount() - 1);
                     }
                 }
                 break;
@@ -103,17 +108,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void removeCurrentCounty() {
+        if (mCountyList.size() == 0) {
+            return;
+        }
+
         final int position = mVpMain.getCurrentItem();
         final County county = mCountyList.get(position);
         if (county != null) {
             new AlertDialog.Builder(this)
                     .setTitle(getString(R.string.remove_county))
                     .setMessage(String.format(getString(R.string.remove_county_msg), county.getName()))
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
                     .setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             SharedPrefsHelper helper = new SharedPrefsHelper(MainActivity.this);
                             helper.removeCounty(county);
+                            WeatherInfoDAO dao = new WeatherInfoDAO(MainActivity.this);
+                            dao.delete(county);
+                            dao.close();
                             mCountyList.remove(position);
                             refreshViewPager();
                         }
@@ -124,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void refreshViewPager() {
         mPagerAdapter.notifyDataSetChanged();
-        mVpMain.setAdapter(mPagerAdapter);
         mCiIndicator.setViewPager(mVpMain);
     }
 }

@@ -15,7 +15,6 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -56,7 +55,7 @@ public class AddActivity extends BaseActivity {
         mCountyInput.setEnabled(false);
 
         mCountyList = new ArrayList<>();
-        mCountyStringList = new LinkedList<>();
+        mCountyStringList = new ArrayList<>();
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line);
         mCountyInput.setAdapter(mAdapter);
     }

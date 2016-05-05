@@ -120,4 +120,8 @@ public class AddActivity extends BaseActivity {
         setResult(RESULT_OK, intent);
         finish();
     }
+
+    public void cancel(View view) {
+        finish();
+    }
 }

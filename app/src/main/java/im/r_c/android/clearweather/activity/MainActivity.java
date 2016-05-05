@@ -79,8 +79,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_item_refresh:
                 FetchWeatherInfoService.start(this);
-            case R.id.menu_item_settings:
                 break;
+//            case R.id.menu_item_settings:
+//                break;
         }
         return true;
     }

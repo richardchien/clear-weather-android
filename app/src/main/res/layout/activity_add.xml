@@ -40,10 +40,26 @@
         android:text="@string/add_county_hint"
         android:textColor="@color/white"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll_button"
+        style="@style/BaseLayout"
         android:layout_below="@+id/ll_county_input"
-        android:onClick="addCounty"
-        android:text="@string/add_county"/>
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/BorderlessButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="cancel"
+            android:text="@string/cancel"
+            android:textColor="@color/white"/>
+
+        <Button
+            style="@style/BorderlessButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="addCounty"
+            android:text="@string/add_county"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 </RelativeLayout>

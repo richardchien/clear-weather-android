@@ -93,4 +93,9 @@
     <style name="DetailItemLayout.Right" parent="HalfLayout">
         <item name="android:layout_marginLeft">@dimen/today_detail_item_layout_margin</item>
     </style>
+
+    <style name="BorderlessButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

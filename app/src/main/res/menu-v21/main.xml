@@ -5,25 +5,18 @@
         android:id="@+id/menu_item_add"
         android:icon="@drawable/ic_add_tinted"
         android:title="@string/action_add"
-        app:icon="@drawable/ic_add_tinted"
-        app:showAsAction="ifRoom"
-        app:title="@string/action_add"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_item_remove"
         android:icon="@drawable/ic_remove_tinted"
         android:title="@string/action_remove"
-        app:icon="@drawable/ic_remove_tinted"
-        app:showAsAction="ifRoom"
-        app:title="@string/action_remove"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_item_refresh"
         android:icon="@drawable/ic_refresh_tinted"
         android:title="@string/action_refresh"
-        app:icon="@drawable/ic_refresh_tinted"
-        app:showAsAction="ifRoom"
-        app:title="@string/action_refresh"/>
+        app:showAsAction="ifRoom"/>
     <!--<item-->
     <!--android:id="@+id/menu_item_settings"-->
-    <!--android:title="@string/action_settings"-->
-    <!--app:title="@string/action_settings"/>-->
+    <!--android:title="@string/action_settings"/>-->
 </menu>

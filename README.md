@@ -2,7 +2,7 @@
 
 A weather application with a very clean UI and easy to use.
 
-Current branch version: v1.0.0, version code: 1.
+Current branch version: v1.0.0, version code: 2.
 
 ## TODO
 

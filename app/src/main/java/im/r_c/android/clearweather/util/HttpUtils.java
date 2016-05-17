@@ -14,8 +14,8 @@ import java.net.URL;
  * Created by richard on 16/4/26.
  */
 public class HttpUtils {
-    public static final int DEFAULT_CONNECTION_TIME_OUT = 8000;
-    public static final int DEFAULT_READ_TIME_OUT = 8000;
+    public static final int DEFAULT_CONNECTION_TIME_OUT = 10000;
+    public static final int DEFAULT_READ_TIME_OUT = 10000;
 
     public static void get(final String urlString) {
         new Thread(new Runnable() {

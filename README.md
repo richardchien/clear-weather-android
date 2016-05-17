@@ -14,7 +14,7 @@ fir.im (可直接下载)：http://fir.im/clearweather
 
 ## Credits
 
-Thanks for [@桔子君_Joy](http://weibo.com/xujingjue)\'s excellent icon design.
+Thanks for [@桔子君_Joy](http://weibo.com/xujingjue)'s excellent icon design.
 
 ## Screenshots
 

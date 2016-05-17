@@ -12,6 +12,10 @@ Google Play：https://play.google.com/store/apps/details?id=im.r_c.android.clear
 
 fir.im (可直接下载)：http://fir.im/clearweather
 
+## Credits
+
+Thanks for [@桔子君_Joy](http://weibo.com/xujingjue)\'s excellent icon design.
+
 ## Screenshots
 
 <img src="./Images/Screenshots/s3.jpg" width="320">

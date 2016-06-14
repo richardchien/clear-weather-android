@@ -1,5 +1,7 @@
 # Clear Weather (清心天气) for Android
 
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
+
 <img src="./Images/Icons/1024x500 Play Store.png">
 
 A weather application with a very clean UI and easy to use.

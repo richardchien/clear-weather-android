@@ -11,7 +11,7 @@ public class Consts {
     public static final String DATABASE_TABLE_WEATHER_INFO = "WeatherInfo";
 
     public static final String API_COUNTY_LIST = "http://7xo46j.com1.z0.glb.clouddn.com/heweather-cn-city-list.json";
-    public static final String API_WEATHER_INFO = "http://richardchien-clear-weather-api.daoapp.io/%s";
+    public static final String API_WEATHER_INFO = "https://richardchien-clear-weather-api.daoapp.io/%s";
 
     public static final String EXTRA_COUNTY = "county";
     public static final String EXTRA_AUTO_UPDATE = "auto update";
